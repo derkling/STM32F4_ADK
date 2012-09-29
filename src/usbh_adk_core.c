@@ -25,10 +25,11 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
-#include "usbh_adk_core.h"
-#include "uart_debug.h"
+#include <usbh_adk_core.h>
+#include <uart_debug.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 /** @defgroup USBH_ADK_CORE_Private_Variables
 * @{
@@ -85,7 +86,7 @@ USBH_Class_cb_TypeDef USBH_ADK_cb =
   * @param  serial: serial number string (max 63 chars)
   * @retval None
   */
-void USBH_ADK_Init(uint8_t* manufacture, uint8_t* model, uint8_t* description, uint8_t* version, uint8_t* uri, uint8_t* serial)
+void USBH_ADK_Init(char* manufacture, char* model, char* description, char* version, char* uri, char* serial)
 {
 	strncpy(ADK_Machine.acc_manufacturer, manufacture, 64);
 	ADK_Machine.acc_manufacturer[63] = '\0';

@@ -132,6 +132,7 @@ void PendSV_Handler(void)
 {
 }
 
+extern void TimingDelay_Decrement(void);
 /**
   * @brief  This function handles SysTick Handler.
   * @param  None
@@ -141,6 +142,8 @@ void SysTick_Handler(void)
 {
     TimingDelay_Decrement();
 }
+
+extern void USB_OTG_BSP_TimerIRQ (void);
 /**
   * @brief  TIM2_IRQHandler
   *         This function handles Timer2 Handler.
@@ -149,7 +152,7 @@ void SysTick_Handler(void)
   */
 void TIM2_IRQHandler(void)
 {
-  USB_OTG_BSP_TimerIRQ(&USB_OTG_Core_dev);
+  USB_OTG_BSP_TimerIRQ();
 }
 
 /**
